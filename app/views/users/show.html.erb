@@ -1,5 +1,3 @@
-
-
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -8,6 +6,20 @@
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
+</p>
+
+<p>
+  <strong>User events:</strong>
+  <tbody>
+    <% current_user.id do |event| %>
+      <tr>
+        <td><%= event.date %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
