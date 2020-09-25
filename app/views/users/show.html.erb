@@ -10,6 +10,9 @@
 
 <p>
   <strong>User events:</strong>
+  <%= @event.date %>
+  <%= @event.location %>
+  <%= @event.description %>
   <tbody>
     <% current_user.id do |event| %>
       <tr>

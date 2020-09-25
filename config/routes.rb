@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'attendance/create'
+  get 'attendance/new'
+  get 'attendance/destroy'
   resources :sessions, only: [:new, :create, :destroy]
   resources :events
   resources :users

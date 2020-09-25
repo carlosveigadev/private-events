@@ -10,11 +10,12 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = current_user.events.build
   end
 
   # GET /events/1/edit
@@ -24,10 +25,11 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = current_user
+    @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to event_path(params[:id]), notice: 'The event was created!'
+      flash[:notice] = 'The event was created!'
+      redirect_to event_path(@event)
     else
       render :new
     end
@@ -66,6 +68,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:date)
+      params.require(:event).permit(:date, :location, :description)
     end
 end
