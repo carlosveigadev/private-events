@@ -11,7 +11,8 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <%= event.date %>
+        <%= event.initial_date %>
+        <%= event.end_date %>
         <%= event.location %>
         <%= event.description %><br>
       </tr>

@@ -10,9 +10,17 @@
 
 <p>
   <strong>User events:</strong>
-  <%= @event.date %>
-  <%= @event.location %>
-  <%= @event.description %>
+  <br>
+  <tbody>
+    <% @event.each do |event| %>
+      <tr>
+        <%= event.initial_date %>
+        <%= event.end_date %>
+        <%= event.location %>
+        <%= event.description %><br>
+      </tr>
+    <% end %>
+  </tbody>
   <tbody>
     <% current_user.id do |event| %>
       <tr>
@@ -20,6 +28,62 @@
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</p>
+
+<p>
+  <strong>User events to attend to:</strong>
+  <br>
+  <tbody>
+    <% @attendence.each do |attendent| %>
+      <tr>
+        <%= attendent.events%>
+      </tr>
+    <% end %>
+  </tbody>
+  <tbody>
+    <% current_user.id do |event| %>
+      <tr>
+        <td><%= event.date %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</p>
+
+<p>
+  <strong>Upcoming Events:</strong>
+  <br>
+  <% current_date =  DateTime.now %>
+  <% p current_date %>
+  <tbody>
+    <% @event.each do |event| %>
+      <% if current_date < event.initial_date %>
+          <%= event.initial_date %>
+          <%= event.end_date %>
+          <%= event.location %>
+          <%= event.description %><br>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</p>
+
+<p>
+  <strong>Past Events:</strong>
+  <br>
+  <tbody>
+    <% @event.each do |event| %>
+      <% if current_date > event.initial_date %>
+          <%= event.initial_date %>
+          <%= event.end_date %>
+          <%= event.location %>
+          <%= event.description %><br>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

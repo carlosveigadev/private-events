@@ -1,10 +1,13 @@
 <p>
-  <strong>Date:</strong>
-  <%= @event.date %>
+  <strong>Event:</strong>
+  <%= @event.initial_date %>
+  <%= @event.end_date %>
   <%= @event.location %>
   <%= @event.description %>
-
 </p>
+
+<strong>Attendees:</strong>
+<%= @event.attendees %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

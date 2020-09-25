@@ -11,7 +11,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @event = Event.find(params[:id])
+    @event = Event.where(creator_id: @user)
+    @attendence = Attendance.where(event_id: @user)
+    #Event.where(select all the events.id where user.id=current_user)
   end
 
   # GET /users/new
