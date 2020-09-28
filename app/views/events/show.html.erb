@@ -7,8 +7,9 @@
 </p>
 
 <strong>Attendees:</strong>
-<%= @event.attendees %>
-<%= link_to "Invite", attendance_path(:event_id => @event, :user_id => @user), method: :post %>
+///////////////////////<%= Users.name.where(Attendance.where(event_id: 1)) %>
+
+<%= link_to "Attend", attendances_create_path %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
