@@ -14,7 +14,8 @@
         <%= event.initial_date %>
         <%= event.end_date %>
         <%= event.location %>
-        <%= event.description %><br>
+        <%= event.description %>
+        <%= link_to 'Show', event_path(event.id) %><br>
       </tr>
     <% end %>
   </tbody>

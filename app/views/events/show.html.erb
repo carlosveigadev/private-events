@@ -8,6 +8,7 @@
 
 <strong>Attendees:</strong>
 <%= @event.attendees %>
+<%= link_to "Invite", attendance_path(:event_id => @event, :user_id => @user), method: :post %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'attendance/create'
-  get 'attendance/new'
-  get 'attendance/destroy'
+  get 'attendances/create'
+  get 'attendances/new'
+  get 'attendances/destroy'
   resources :sessions, only: [:new, :create, :destroy]
   resources :events
   resources :users
@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   post 'signup', to: 'users#create'
+  post 'attendance', to: 'attendances#create'
 end
