@@ -1,87 +1,127 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="container-fluid text-white d-flex justify-content-center flex-wrap">
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <div class="m-2 card opacity-card text-dark p-4" style="width: 18rem;">
+    <div class="card-title">
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </div>
+    <div class="card-title">
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </div>
+    <div>
+      <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-dark' %>
+      <%= link_to 'Back', users_path,  class: 'btn btn-dark' %>
+    </div>
+  </div>
 
-<p>
-  <strong>User events:</strong>
-  <br>
-  <tbody>
-    <% @event.each do |event| %>
-      <tr>
-        <%= event.initial_date %>
-        <%= event.end_date %>
-        <%= event.location %>
-        <%= event.description %><br>
-      </tr>
-    <% end %>
-  </tbody>
-  <tbody>
-    <% current_user.id do |event| %>
-      <tr>
-        <td><%= event.date %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</p>
+  <div class="d-flex  align-content-center mb-5 text-dark flex-column">
+    <div class="d-flex " >
+      <h5 class="text-white ">User events</h5>
+    </div>
+    <div class="d-flex d-row">
+      <% @event.each do |event| %>
+        <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
+          <div class="card-body p-0 ">
+            <h5 class="card-title str"></h5>
+            <p class="card-text">
+            <div class="font-weight-lighter">
+              <h6><%= event.description %></h6>
+              <h6><%= event.location %></h6>
+            </div>
+            <div>
+              <p>Start Date: <%= event.initial_date %></p>
+              <p>End Date: <%= event.end_date %></p>
+            </div>
 
-<p>
+            </p>
+            <%= link_to 'Show', event_path(event.id), class: "btn btn-secondary btn-white" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div>
+      <div>
 
-  <strong>User events to attend to:</strong>
-  <br>
-  <tbody>
-  <%  current_user.attended_events.each do |attend| %>
-    <li ><%= attend.description %></li>
-    <% end %>
-  </tbody>
-  <tbody>
-    <% current_user.id do |event| %>
-      <tr>
-        <td><%= event.date %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</p>
+        <strong>User events:</strong>
 
-<p>
-  <strong>Upcoming Events:</strong>
-  <br>
-  <% current_date =  DateTime.now %>
-  <tbody>
-    <% @event.future_events.each do |event| %>
+        <% @event.each do |event| %>
+
           <%= event.initial_date %>
           <%= event.end_date %>
           <%= event.location %>
           <%= event.description %><br>
-      </tr>
-    <% end %>
-  </tbody>
-</p>
+          </tr>
+        <% end %>
 
-<p>
-  <strong>Past Events:</strong>
-  <br>
-  <tbody>
-    <% @event.past_events.each do |event| %>
+
+        <% current_user do |event| %>
+          <tr>
+            <<%= event.date %>
+            <%= link_to 'Show', event %>
+            <%= link_to 'Edit', edit_event_path(event) %>
+            <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        <% end %>
+
+      </div>
+      <div>
+
+
+        <strong>User events to attend to:</strong>
+
+        <%  current_user.attended_events.each do |attend| %>
+          <li ><%= attend.description %></li>
+        <% end %>
+
+        <% current_user.id do |event| %>
+
+          <%= event.date %>
+          <%= link_to 'Show', event %>
+          <%= link_to 'Edit', edit_event_path(event) %>
+          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        <% end %>
+
+
+      </div>
+      <div>
+
+        <strong>Upcoming Events:</strong>
+
+        <% current_date =  DateTime.now %>
+
+        <% @event.future_events.each do |event| %>
           <%= event.initial_date %>
           <%= event.end_date %>
           <%= event.location %>
           <%= event.description %><br>
-      </tr>
-    <% end %>
-  </tbody>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+        <% end %>
+
+
+      </div>
+      <div>
+
+        <strong>Past Events:</strong>
+
+        <% @event.past_events.each do |event| %>
+          <%= event.initial_date %>
+          <%= event.end_date %>
+          <%= event.location %>
+          <%= event.description %><br>
+
+        <% end %>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+</div>
+

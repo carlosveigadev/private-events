@@ -27,9 +27,13 @@
 }
 
 .navbar {
-  background-color: rgba(60, 60, 60, 0.8) !important;
+  background: linear-gradient(90deg, hsla(213, 100%, 23%, 0.8) 0%, hsla(328, 67%, 68%, 0.8) 50%, hsla(343, 98%, 41%, 0.8) 100%)!important;
+  border: none;
+  box-shadow: 0 0 4px 0 ;
+
 }
 
 .opacity-card {
   opacity: 0.8;
 }
+

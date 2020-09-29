@@ -13,12 +13,13 @@
 
 
   <body class="back-ground">
-  <nav class="navbar sticky-top alert bg-transparent mb-0 shadow p-3 mb-5 bg-white rounded">
-     <span class="navbar-brand mb-0 h1">Private Events</span>
+  <nav class="navbar sticky-top  p-3  ">
+     <span class="navbar-brand mb-0  "><h5 class="text-white">Private Events</h5></span>
   <div id="user_header">
     <% if current_user %>
-    <%= link_to 'New Event', new_event_path,  class: 'btn btn-warning' %>
-      Welcome <%= link_to current_user.name, user_path(current_user.id) %>.
+      Welcome <%= link_to current_user.name, user_path(current_user.id), class: 'text-white' %>.
+      <%= link_to 'New Event', new_event_path,  class: 'btn btn-warning mx-3 text-dark' %>
+
       <%= link_to "Log Out", logout_path, class: 'btn btn-dark' %>
     <% else %>
       <%= link_to "Sign Up", signup_path, class: 'btn btn-dark' %> or
