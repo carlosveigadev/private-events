@@ -34,6 +34,7 @@
 </p>
 
 <p>
+
   <strong>User events to attend to:</strong>
   <br>
   <tbody>
@@ -57,15 +58,12 @@
   <strong>Upcoming Events:</strong>
   <br>
   <% current_date =  DateTime.now %>
-  <% p current_date %>
   <tbody>
-    <% @event.each do |event| %>
-      <% if current_date < event.initial_date %>
+    <% @event.future_events.each do |event| %>
           <%= event.initial_date %>
           <%= event.end_date %>
           <%= event.location %>
           <%= event.description %><br>
-      <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -75,13 +73,11 @@
   <strong>Past Events:</strong>
   <br>
   <tbody>
-    <% @event.each do |event| %>
-      <% if current_date > event.initial_date %>
+    <% @event.past_events.each do |event| %>
           <%= event.initial_date %>
           <%= event.end_date %>
           <%= event.location %>
           <%= event.description %><br>
-      <% end %>
       </tr>
     <% end %>
   </tbody>

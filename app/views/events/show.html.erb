@@ -8,8 +8,7 @@
 
 <strong>Attendees:</strong>
 
-
-<%= link_to "Attend", attendances_create_path(event_id: @event.id) %>
+<%= link_to "Attend", attend_path(event_id: @event.id) %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

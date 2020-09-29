@@ -25,3 +25,33 @@
 
 <%= link_to 'New Event', new_event_path %>
 
+<p>
+  <strong>Upcoming Events:</strong>
+  <br>
+  <tbody>
+    <% @events.future_events.each do |event| %>
+          <%= event.initial_date %>
+          <%= event.end_date %>
+          <%= event.location %>
+          <%= event.description %><br>
+      </tr>
+    <% end %>
+  </tbody>
+</p>
+
+<p>
+  <strong>Past Events:</strong>
+  <br>
+  <tbody>
+    <% @events.past_events.each do |event| %>
+          <%= event.initial_date %>
+          <%= event.end_date %>
+          <%= event.location %>
+          <%= event.description %><br>
+      </tr>
+    <% end %>
+  </tbody>
+</p>
+
+
+
