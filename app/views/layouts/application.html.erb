@@ -9,10 +9,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  
+
+
   <body>
+  <nav class="navbar alert alert-dark">
+     <span class="navbar-brand mb-0 h1">Private Events</span>
   <div id="user_header">
     <% if current_user %>
-      Logged in as <%= link_to current_user.name, user_path(current_user.id) %>.
+    <%= link_to 'New Event', new_event_path %>
+      Welcome <%= link_to current_user.name, user_path(current_user.id) %>.
       <%= link_to "Log Out", logout_path %>
     <% else %>
       <%= link_to "Sign Up", signup_path %> or
@@ -24,6 +30,8 @@
       <p><%= value %></p>
     <% end %>
   <% end %>
+ 
+  </nav>
     <%= yield %>
   </body>
 </html>
