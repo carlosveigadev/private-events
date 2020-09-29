@@ -1,56 +1,66 @@
 <h1>Events</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container-fluid back-ground">
 
-  <tbody>
+  <div class="d-flex ">
     <% @events.each do |event| %>
-      <tr>
-        <%= event.initial_date %>
-        <%= event.end_date %>
-        <%= event.location %>
-        <%= event.description %>
-        <%= link_to 'Show', event_path(event.id) %><br>
-      </tr>
+      <div class="card m-1" style="width: 18rem;">
+
+        <div class="card-body">
+
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            <%= event.initial_date %>
+            <%= event.end_date %>
+
+            <%= event.description %>
+            <br>
+          </p>
+          <%= link_to 'Show', event_path(event.id), class: "btn btn-primary" %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
-
-<p>
+  </div>
   <strong>Upcoming Events:</strong>
-  <br>
-  <tbody>
+  <div class="d-flex ">
+
     <% @events.future_events.each do |event| %>
-          <%= event.initial_date %>
-          <%= event.end_date %>
-          <%= event.location %>
-          <%= event.description %><br>
-      </tr>
-    <% end %>
-  </tbody>
-</p>
+      <div class="card m-1" style="width: 18rem;">
 
-<p>
+        <div class="card-body">
+
+          <h5 class="card-title"><%= event.location %></h5>
+          <p class="card-text">
+            <%= event.initial_date %>
+            <%= event.end_date %>
+
+            <%= event.description %><br>
+          </p>
+          <%= link_to 'Show', event_path(event.id), class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <strong>Past Events:</strong>
-  <br>
-  <tbody>
+  <div class="d-flex ">
+
     <% @events.past_events.each do |event| %>
-          <%= event.initial_date %>
-          <%= event.end_date %>
-          <%= event.location %>
-          <%= event.description %><br>
-      </tr>
+      <div class="card m-1" style="width: 18rem;">
+
+        <div class="card-body">
+
+          <h5 class="card-title"><%= event.location %></h5>
+          <p class="card-text">
+
+              <%= event.initial_date %>
+              <%= event.end_date %>
+
+              <%= event.description %><br>
+          </p>
+          <%= link_to 'Show', event_path(event.id), class: "btn btn-primary" %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</p>
+  </div>
 
-
-
+</div>
