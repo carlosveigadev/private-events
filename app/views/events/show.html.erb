@@ -7,9 +7,9 @@
 </p>
 
 <strong>Attendees:</strong>
-///////////////////////<%= Users.name.where(Attendance.where(event_id: 1)) %>
 
-<%= link_to "Attend", attendances_create_path %>
+
+<%= link_to "Attend", attendances_create_path(event_id: @event.id) %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

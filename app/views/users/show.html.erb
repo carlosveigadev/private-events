@@ -37,10 +37,8 @@
   <strong>User events to attend to:</strong>
   <br>
   <tbody>
-    <% @attendence.each do |attendent| %>
-      <tr>
-        <%= attendent.events%>
-      </tr>
+  <%  current_user.attended_events.each do |attend| %>
+    <li ><%= attend.description %></li>
     <% end %>
   </tbody>
   <tbody>
