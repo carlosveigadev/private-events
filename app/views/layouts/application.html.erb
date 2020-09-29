@@ -12,17 +12,17 @@
   
 
 
-  <body>
-  <nav class="navbar alert alert-dark">
+  <body class="back-ground">
+  <nav class="navbar sticky-top alert bg-transparent mb-0 shadow p-3 mb-5 bg-white rounded">
      <span class="navbar-brand mb-0 h1">Private Events</span>
   <div id="user_header">
     <% if current_user %>
-    <%= link_to 'New Event', new_event_path %>
+    <%= link_to 'New Event', new_event_path,  class: 'btn btn-warning' %>
       Welcome <%= link_to current_user.name, user_path(current_user.id) %>.
-      <%= link_to "Log Out", logout_path %>
+      <%= link_to "Log Out", logout_path, class: 'btn btn-dark' %>
     <% else %>
-      <%= link_to "Sign Up", signup_path %> or
-      <%= link_to "Log In", login_path %>
+      <%= link_to "Sign Up", signup_path, class: 'btn btn-dark' %> or
+      <%= link_to "Log In", login_path, class: 'btn btn-dark' %>
     <% end %>
   </div>
   <% flash.each do |key, value| %>

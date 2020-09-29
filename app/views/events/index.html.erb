@@ -1,66 +1,55 @@
-<h1>Events</h1>
-<div class="container-fluid back-ground">
-
-  <div class="d-flex ">
+<div class="container-fluid ">
+  <div class="container-fluid text-center mb-5 ">
+    <h1 class="text-white">Events</h1>
+  </div>
+<h4 class="text-white text-center mb-4">All Events</h4>
+  <div class="d-flex flex-wrap justify-content-center mb-5">
     <% @events.each do |event| %>
-      <div class="card m-1" style="width: 18rem;">
-
+      <div class="card m-2 opacity-card" style="width: 18rem;">
         <div class="card-body">
-
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title"><%= event.location %></h5>
           <p class="card-text">
             <%= event.initial_date %>
             <%= event.end_date %>
-
             <%= event.description %>
             <br>
           </p>
-          <%= link_to 'Show', event_path(event.id), class: "btn btn-primary" %>
+          <%= link_to 'Show', event_path(event.id), class: "btn btn-secondary btn-white" %>
         </div>
       </div>
     <% end %>
   </div>
-  <strong>Upcoming Events:</strong>
-  <div class="d-flex ">
-
+  <h4 class="text-white text-center mb-4">Upcoming Events:</h4>
+  <div class="d-flex flex-wrap justify-content-center mb-5">
     <% @events.future_events.each do |event| %>
-      <div class="card m-1" style="width: 18rem;">
-
+      <div class="card m-2 opacity-card" style="width: 18rem;">
         <div class="card-body">
-
           <h5 class="card-title"><%= event.location %></h5>
           <p class="card-text">
             <%= event.initial_date %>
             <%= event.end_date %>
-
             <%= event.description %><br>
           </p>
-          <%= link_to 'Show', event_path(event.id), class: "btn btn-primary" %>
+          <%= link_to 'Show', event_path(event.id), class: "btn btn-secondary" %>
         </div>
       </div>
     <% end %>
   </div>
 
-  <strong>Past Events:</strong>
-  <div class="d-flex ">
-
+  <h4 class="text-white text-center mb-4">Past Events:</h4>
+  <div class="d-flex flex-wrap justify-content-center mb-5">
     <% @events.past_events.each do |event| %>
-      <div class="card m-1" style="width: 18rem;">
-
+      <div class="card m-2 opacity-card" style="width: 18rem;">
         <div class="card-body">
-
           <h5 class="card-title"><%= event.location %></h5>
           <p class="card-text">
-
               <%= event.initial_date %>
               <%= event.end_date %>
-
               <%= event.description %><br>
           </p>
-          <%= link_to 'Show', event_path(event.id), class: "btn btn-primary" %>
+          <%= link_to 'Show', event_path(event.id), class: "btn btn-secondary" %>
         </div>
       </div>
     <% end %>
   </div>
-
 </div>

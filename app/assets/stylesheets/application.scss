@@ -16,7 +16,20 @@
 
 @import 'bootstrap';
 
-
 .back-ground {
-  background-image: url("../images/alexander-popov-hTv8aaPziOQ-unsplash.jpg");
+  background-image: url(image-path("alexander-popov-hTv8aaPziOQ-unsplash.jpg"));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn {
+  color: white !important;
+}
+
+.navbar {
+  background-color: rgba(60, 60, 60, 0.8) !important;
+}
+
+.opacity-card {
+  opacity: 0.8;
 }

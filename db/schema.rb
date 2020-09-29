@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_09_25_214327) do
     t.string "location"
     t.text "description"
     t.integer "creator_id"
-    t.datetime "initial_date"
-    t.datetime "end_date"
+    t.date "initial_date"
+    t.date "end_date"
   end
 
   create_table "users", force: :cascade do |t|
