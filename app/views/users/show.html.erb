@@ -2,6 +2,9 @@
 
   <div class="m-2 card opacity-card text-dark p-4" style="width: 18rem;">
     <div class="card-title">
+      <h4 class="font-weight-bold">User Details:</h4>
+    </div>
+    <div class="card-title">
       <strong>Name:</strong>
       <%= @user.name %>
     </div>
@@ -15,18 +18,18 @@
     </div>
   </div>
 
-  <div class="d-flex  align-content-center mb-5 text-dark flex-column">
-    <div class="d-flex " >
-      <h5 class="text-white ">User events</h5>
+  <div class="d-flex align-content-center mb-5 text-dark flex-column">
+    <div class="d-flex justify-content-center mt-5" >
+      <h5 class="text-white font-weight-bold">User events</h5>
     </div>
-    <div class="d-flex d-row">
+    <div class="d-flex flex-wrap justify-content-center">
+    <% if @event.each.count > 0 %>
       <% @event.each do |event| %>
         <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
           <div class="card-body p-0 ">
-            <h5 class="card-title str"></h5>
+            <h5 class="card-title font-weight-bold"><%= event.description %></h5>
             <p class="card-text">
             <div class="font-weight-lighter">
-              <h6><%= event.description %></h6>
               <h6><%= event.location %></h6>
             </div>
             <div>
@@ -35,93 +38,94 @@
             </div>
 
             </p>
-            <%= link_to 'Show', event_path(event.id), class: "btn btn-secondary btn-white" %>
+            <%= link_to 'Details', event_path(event.id), class: "btn btn-secondary btn-white" %>
+          </div>
+        </div>
+      <% end %>
+      <% else %>
+        <h4>There are no events.</h4>
+      <% end %>
+    </div>
+    <div class="d-flex align-content-center mb-5 text-dark flex-column">
+    <div class="d-flex justify-content-center mt-5" >
+      <h5 class="text-white font-weight-bold">User events to attend to</h5>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center">
+      <% current_user.attended_events.each do |attend| %>
+        <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
+          <div class="card-body p-0 ">
+            <h5 class="card-title font-weight-bold"><%= attend.description %></h5>
+            <p class="card-text">
+            <div class="font-weight-lighter">
+              <h6><%= attend.location %></h6>
+            </div>
+            <div>
+              <p>Start Date: <%= attend.initial_date %></p>
+              <p>End Date: <%= attend.end_date %></p>
+            </div>
+
+            </p>
+            <%= link_to 'Details', event_path(@event), class: "btn btn-secondary btn-white" %>
           </div>
         </div>
       <% end %>
     </div>
     <div>
-      <div>
-
-        <strong>User events:</strong>
-
-        <% @event.each do |event| %>
-
-          <%= event.initial_date %>
-          <%= event.end_date %>
-          <%= event.location %>
-          <%= event.description %><br>
-          </tr>
-        <% end %>
-
-
-        <% current_user do |event| %>
-          <tr>
-            <<%= event.date %>
-            <%= link_to 'Show', event %>
-            <%= link_to 'Edit', edit_event_path(event) %>
-            <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-        <% end %>
-
+      <div class="d-flex justify-content-center mt-5" >
+        <h5 class="text-white font-weight-bold">Upcoming Events</h5>
       </div>
+    <div class="d-flex flex-wrap justify-content-center">
+    <% if @event.future_events.each.count > 0 %>
+      <% @event.future_events.each do |event| %>
+        <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
+          <div class="card-body p-0 ">
+            <h5 class="card-title font-weight-bold"><%= event.description %></h5>
+            <p class="card-text">
+              <div class="font-weight-lighter">
+                <h6><%= event.location %></h6>
+              </div>
+              <div>
+                <p>Start Date: <%= event.initial_date %></p>
+                <p>End Date: <%= event.end_date %></p>
+              </div>
+            </p>
+            <%= link_to 'Details', event_path(@event), class: "btn btn-secondary btn-white" %>
+          </div>
+        </div>
+      <% end %>
+      <% else %>
+          <h4>There are no future events.</h4>
+        <% end %>
+    </div>
+    <div>
       <div>
-
-
-        <strong>User events to attend to:</strong>
-
-        <%  current_user.attended_events.each do |attend| %>
-          <li ><%= attend.description %></li>
-        <% end %>
-
-        <% current_user.id do |event| %>
-
-          <%= event.date %>
-          <%= link_to 'Show', event %>
-          <%= link_to 'Edit', edit_event_path(event) %>
-          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-        <% end %>
-
-
+        <div class="d-flex justify-content-center mt-5" >
+        <h5 class="text-white font-weight-bold">Past Events:</h5>
       </div>
-      <div>
-
-        <strong>Upcoming Events:</strong>
-
-        <% current_date =  DateTime.now %>
-
-        <% @event.future_events.each do |event| %>
-          <%= event.initial_date %>
-          <%= event.end_date %>
-          <%= event.location %>
-          <%= event.description %><br>
-
-        <% end %>
-
-
-      </div>
-      <div>
-
-        <strong>Past Events:</strong>
-
+      <div class="d-flex flex-wrap justify-content-center">
+      <% if @event.past_events.each.count > 0 %>
         <% @event.past_events.each do |event| %>
-          <%= event.initial_date %>
-          <%= event.end_date %>
-          <%= event.location %>
-          <%= event.description %><br>
-
+          <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
+            <div class="card-body p-0 ">
+              <h5 class="card-title font-weight-bold"><%= event.description %></h5>
+              <p class="card-text">
+                <div class="font-weight-lighter">
+                  <h6><%= event.location %></h6>
+                </div>
+                <div>
+                  <p>Start Date: <%= event.initial_date %></p>
+                  <p>End Date: <%= event.end_date %></p>
+                </div>
+              </p>
+              <%= link_to 'Details', event_path(@event), class: "btn btn-secondary btn-white" %>
+            </div>
+          </div>
+          <% end %>
+        <% else %>
+          <h4>There were no past events.</h4>
         <% end %>
-
-
       </div>
     </div>
-
   </div>
-
-
-
-
-
 </div>
 
