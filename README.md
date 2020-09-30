@@ -4,7 +4,7 @@
 
 ## Demo
 
-![gif of the project](app/assets/images/project.gif)
+![gif of the project](app/assets/images/PrivateEvents.gif)
 
 
 ### Usage
