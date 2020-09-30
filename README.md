@@ -1,24 +1,63 @@
-# README
+##  Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> In this project, we built an application named Private Events and that behaves similar to Eventbrite. The main goal is to put in practice the main concepts of Associations and Database in rails.
 
-Things you may want to cover:
+## Demo
 
-* Ruby version
+![gif of the project](app/assets/images/project.gif)
 
-* System dependencies
 
-* Configuration
+### Usage
 
-* Database creation
+> This project intends to practice our skills working with Associations and Database.
 
-* Database initialization
+### Build With
 
-* How to run the test suite
+- Ruby 2.7.0p0
+- Ruby on Rails 5.2.4.4
 
-* Services (job queues, cache servers, search engines, etc.)
+### Setup
+ - Open a terminal
+ - Copy this code : 
+ 
+        
+        git clone git@github.com:wrakc/private-events.git
 
-* Deployment instructions
+        bundle install
+       
+        rails db:migrate
 
-* ...
+        access http://localhost:3000
+        
+
+
+## Author
+
+👤 **Carlos Veiga**
+
+- Github: [@wrakc](https://github.com/wrakc)
+- Twitter: [@carlosveig](https://twitter.com/carlosveig)
+- Linkedin: [chveiga](https://linkedin.com/chveiga)
+
+👤 **Sanad Walid Abujbara**
+
+- Github: [@sanadwj](https://github.com/githubhandle)
+- Twitter: [@sandooog](https://twitter.com/sandooog)
+- Linkedin: [sanad-abujbara](https://linkedin.com/in/sanad-abujbara)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+## Show your support .
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Microverse Team 124 (The Minskins)
+- Microverse Team 139 (The Thanatos)
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
