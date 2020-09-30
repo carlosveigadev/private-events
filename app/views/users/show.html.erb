@@ -65,7 +65,7 @@
             </div>
 
             </p>
-            <%= link_to 'Details', event_path(@event), class: "btn btn-secondary btn-white" %>
+            <%= link_to 'Details', event_path(attend.id), class: "btn btn-secondary btn-white" %>
           </div>
         </div>
       <% end %>
@@ -89,7 +89,7 @@
                 <p>End Date: <%= event.end_date %></p>
               </div>
             </p>
-            <%= link_to 'Details', event_path(@event), class: "btn btn-secondary btn-white" %>
+            <%= link_to 'Details', event_path(event.id), class: "btn btn-secondary btn-white" %>
           </div>
         </div>
       <% end %>
@@ -117,7 +117,7 @@
                   <p>End Date: <%= event.end_date %></p>
                 </div>
               </p>
-              <%= link_to 'Details', event_path(@event), class: "btn btn-secondary btn-white" %>
+              <%= link_to 'Details', event_path(event.id), class: "btn btn-secondary btn-white" %>
             </div>
           </div>
           <% end %>
