@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: %i[show edit update destroy]
   # GET /events
   # GET /events.json
   def index
@@ -18,8 +18,7 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /events
   # POST /events.json
@@ -30,7 +29,7 @@ class EventsController < ApplicationController
       flash[:notice] = 'The event was created!'
       redirect_to event_path(@event)
     else
-      flash[:notice] = "Invalid name"
+      flash[:notice] = 'Invalid name'
     end
   end
 
