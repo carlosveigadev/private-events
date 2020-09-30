@@ -1,14 +1,32 @@
-<p>
-  <strong>Event:</strong>
-  <%= @event.initial_date %>
-  <%= @event.end_date %>
-  <%= @event.location %>
-  <%= @event.description %>
-</p>
+
+<div class='justify-content-center d-flex m-5'>
+  <div class=" m-2 card opacity-card text-dark p-4 " style="width: 30rem;">
+    <div class="card-title">
+      <h4 class="font-weight-bold">Event Details</h4>
+    </div>
+    <div class="card-title">
+      <strong>Location:</strong>
+      <%= @event.location %>
+    </div>
+    <div class="card-title">
+      <strong>Description:</strong>
+      <%= @event.description %>
+    </div>
+     <div class="card-title">
+      <strong>Initial Date:</strong>
+      <%= @event.initial_date %>
+    </div>
+    <div class="card-title">
+      <strong>End Date:</strong>
+      <%= @event.end_date %>
+    </div>
+    <div>
+      <%= link_to "Attend", attend_path(event_id: @event.id), class: 'btn btn-success' %>
+      <%= link_to 'Remove', event_path(@event), method: :delete, class: 'btn btn-danger' %>
+      <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-dark'%>
+      <%= link_to 'Back', events_path, class: 'btn btn-dark' %>
+    </div>
+  </div>
+</div>
 
 <strong>Attendees:</strong>
-
-<%= link_to "Attend", attend_path(event_id: @event.id) %>
-<%= link_to 'Remove', event_path(@event), method: :delete %> |
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
