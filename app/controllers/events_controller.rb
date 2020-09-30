@@ -32,7 +32,6 @@ class EventsController < ApplicationController
     else
       flash[:notice] = "Invalid name"
     end
-
   end
 
   # PATCH/PUT /events/1
@@ -61,13 +60,14 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def event_params
-      params.require(:event).permit(:initial_date, :end_date, :location, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:initial_date, :end_date, :location, :description)
+  end
 end

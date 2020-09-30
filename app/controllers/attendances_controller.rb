@@ -5,7 +5,7 @@ class AttendancesController < ApplicationController
 
     if @event.save
       redirect_to user_path(current_user)
-      flash[:alert] = "Nice, you are checked in to the event!" 
+      flash[:alert] = "Nice, you are checked in to the event!"
     else
       flash[:alert] = "Unable to send invite"
       redirect_to @event
@@ -14,5 +14,4 @@ class AttendancesController < ApplicationController
 
   def destroy
   end
-
 end

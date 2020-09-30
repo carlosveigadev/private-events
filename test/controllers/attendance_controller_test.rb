@@ -15,5 +15,4 @@ class AttendanceControllerTest < ActionDispatch::IntegrationTest
     get attendance_destroy_url
     assert_response :success
   end
-
 end
