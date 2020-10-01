@@ -23,7 +23,7 @@
       <h5 class="text-white font-weight-bold">User events</h5>
     </div>
     <div class="d-flex flex-wrap justify-content-center">
-    <% if @event.each.count > 0 %>
+    <% if is_events? %>
       <% @event.each do |event| %>
         <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
           <div class="card-body p-0 ">
@@ -75,8 +75,8 @@
         <h5 class="text-white font-weight-bold">Upcoming Events</h5>
       </div>
     <div class="d-flex flex-wrap justify-content-center">
-    <% if @event.future_events.each.count > 0 %>
-      <% @event.future_events.each do |event| %>
+    <% if events_future? %>
+      <% @future_event.each do |event| %>
         <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
           <div class="card-body p-0 ">
             <h5 class="card-title font-weight-bold"><%= event.description %></h5>
@@ -95,7 +95,7 @@
       <% end %>
       <% else %>
           <h4>There are no future events.</h4>
-        <% end %>
+      <% end %>
     </div>
 
       <div>
@@ -103,8 +103,8 @@
         <h5 class="text-white font-weight-bold">Past Events:</h5>
       </div>
       <div class="d-flex flex-wrap justify-content-center">
-      <% if @event.past_events.each.count > 0 %>
-        <% @event.past_events.each do |event| %>
+      <% if events_past? %>
+        <% @past_event.each do |event| %>
           <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
             <div class="card-body p-0 ">
               <h5 class="card-title font-weight-bold"><%= event.description %></h5>
@@ -126,8 +126,6 @@
         <% end %>
       </div>
     </div>
-
-
   </div>
 </div>
 

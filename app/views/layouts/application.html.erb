@@ -10,7 +10,11 @@
   </head>
   <body class="back-ground">
   <nav class="navbar sticky-top  p-3  ">
-     <span class="navbar-brand mb-0  "><h5 class="text-white">Private Events</h5></span>
+     <span class="navbar-brand mb-0  ">
+      <h5 class="text-white">
+        <%= link_to "Private Events", events_path, class: 'text-white font-weight-bold no-hover' %>
+      </h5>
+     </span>
   <div id="user_header">
     <% if current_user %>
       Welcome <%= link_to current_user.name, user_path(current_user.id), class: 'text-white' %>.

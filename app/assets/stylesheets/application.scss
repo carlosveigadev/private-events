@@ -36,3 +36,8 @@
 .opacity-card {
   background-color: rgba($color: white, $alpha: 0.8);
 }
+
+.no-hover:hover {
+  background-color: transparent;
+  text-decoration: none;
+}
