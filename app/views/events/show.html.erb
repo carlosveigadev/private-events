@@ -21,7 +21,7 @@
       <%= @event.end_date %>
     </div>
     <div>
-      <% if logged_in? %>
+      <% if logged_in? && creator? %>
         <%= link_to "Attend", attend_path(event_id: @event.id), class: 'btn btn-success' %>
         <%= link_to 'Remove', event_path(@event), method: :delete, class: 'btn btn-danger' %>
         <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-dark'%>

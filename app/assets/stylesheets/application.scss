@@ -17,7 +17,7 @@
 @import 'bootstrap';
 
 .back-ground {
-  background-image: url(image-path("alexander-popov-hTv8aaPziOQ-unsplash.jpg"));
+  background-image: image-url("alexander-popov-hTv8aaPziOQ-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -27,10 +27,9 @@
 }
 
 .navbar {
-  background: linear-gradient(90deg, hsla(213, 100%, 23%, 0.8) 0%, hsla(328, 67%, 68%, 0.8) 50%, hsla(343, 98%, 41%, 0.8) 100%)!important;
+  background: linear-gradient(90deg, hsla(213, 100%, 23%, 0.8) 0%, hsla(328, 67%, 68%, 0.8) 50%, hsla(343, 98%, 41%, 0.8) 100%) !important;
   border: none;
-  box-shadow: 0 0 4px 0 ;
-
+  box-shadow: 0 0 4px 0;
 }
 
 .opacity-card {
