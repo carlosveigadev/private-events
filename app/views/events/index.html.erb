@@ -1,0 +1,93 @@
+<div class="container-fluid ">
+  <div class="container-fluid text-center mb-5 ">
+    <h1 class="text-white mt-5">Events</h1>
+  </div>
+<h4 class="text-white text-center mb-4">All Events</h4>
+  <div class="d-flex flex-wrap justify-content-center mb-5">
+    <% @events.each do |event| %>
+      <div class="card m-2 opacity-card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= event.description %></h5>
+          <p class="card-text">
+          <div>
+            <h6>
+              <%= event.location %>
+            </h6>
+          </div>
+          <div>
+            <p>
+              Start Date: <%= event.initial_date %>
+            </p>
+            <p>
+              End Date: <%= event.end_date %>
+            </p>
+          </div>
+          <div></div>
+          <br>
+          </p>
+          <%= link_to 'Show', event_path(event.id), class: "btn btn-secondary btn-white" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h4 class="text-white text-center mb-4">Upcoming Events</h4>
+  <div class="d-flex flex-wrap justify-content-center mb-5">
+    <% @events.future_events.each do |event| %>
+      <div class="card m-2 opacity-card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= event.description %></h5>
+          <p class="card-text">
+          <div>
+            <h6>
+              <%= event.location %>
+            </h6>
+          </div>
+          <div>
+            <p>
+              Start Date: <%= event.initial_date %>
+            </p>
+            <p>
+              End Date: <%= event.end_date %>
+            </p>
+          </div>
+          <div></div>
+          <br>
+          </p>
+          <%= link_to 'Show', event_path(event.id), class: "btn btn-secondary btn-white" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <h4 class="text-white text-center mb-4">Past Events</h4>
+  <div class="d-flex flex-wrap justify-content-center mb-5">
+    <% @events.past_events.each do |event| %>
+      <div class="card m-2 opacity-card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= event.description %></h5>
+          <p class="card-text">
+          <div>
+            <h6>
+              <%= event.location %>
+            </h6>
+          </div>
+          <div>
+            <p>
+              Start Date: <%= event.initial_date %>
+            </p>
+            <p>
+              End Date: <%= event.end_date %>
+            </p>
+          </div>
+          <div></div>
+
+
+
+          <br>
+          </p>
+          <%= link_to 'Show', event_path(event.id), class: "btn btn-secondary btn-white" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="container-fluid text-white d-flex justify-content-center flex-wrap">
+
+  <div class="m-2 card opacity-card text-dark p-4" style="width: 18rem;">
+    <div class="card-title">
+      <h4 class="font-weight-bold">User Details:</h4>
+    </div>
+    <div class="card-title">
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </div>
+    <div class="card-title">
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </div>
+    <div>
+      <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-dark' %>
+      <%= link_to 'Back', users_path,  class: 'btn btn-dark' %>
+    </div>
+  </div>
+
+  <div class="d-flex align-content-center mb-5 text-dark flex-column">
+    <div class="d-flex justify-content-center mt-5" >
+      <h5 class="text-white font-weight-bold">User events</h5>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center">
+    <% if events? %>
+      <% @event.each do |event| %>
+        <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
+          <div class="card-body p-0 ">
+            <h5 class="card-title font-weight-bold"><%= event.description %></h5>
+            <p class="card-text">
+            <div class="font-weight-lighter">
+              <h6><%= event.location %></h6>
+            </div>
+            <div>
+              <p>Start Date: <%= event.initial_date %></p>
+              <p>End Date: <%= event.end_date %></p>
+            </div>
+
+            </p>
+            <%= link_to 'Details', event_path(event.id), class: "btn btn-secondary btn-white" %>
+          </div>
+        </div>
+      <% end %>
+      <% else %>
+        <h4>There are no events.</h4>
+      <% end %>
+    </div>
+
+
+      <div class="d-flex justify-content-center mt-5" >
+        <h5 class="text-white font-weight-bold">Upcoming Events</h5>
+      </div>
+    <div class="d-flex flex-wrap justify-content-center">
+    <% if events_future? %>
+      <% @future_event.each do |event| %>
+        <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
+          <div class="card-body p-0 ">
+            <h5 class="card-title font-weight-bold"><%= event.description %></h5>
+            <p class="card-text">
+              <div class="font-weight-lighter">
+                <h6><%= event.location %></h6>
+              </div>
+              <div>
+                <p>Start Date: <%= event.initial_date %></p>
+                <p>End Date: <%= event.end_date %></p>
+              </div>
+            </p>
+            <%= link_to 'Details', event_path(event.id), class: "btn btn-secondary btn-white" %>
+          </div>
+        </div>
+      <% end %>
+      <% else %>
+          <h4>There are no future events.</h4>
+      <% end %>
+    </div>
+
+      <div>
+        <div class="d-flex justify-content-center mt-5" >
+        <h5 class="text-white font-weight-bold">Past Events:</h5>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center">
+      <% if events_past? %>
+        <% @past_event.each do |event| %>
+          <div class="card m-2 p-1 opacity-card " style="width: 12rem; height: 12rem">
+            <div class="card-body p-0 ">
+              <h5 class="card-title font-weight-bold"><%= event.description %></h5>
+              <p class="card-text">
+                <div class="font-weight-lighter">
+                  <h6><%= event.location %></h6>
+                </div>
+                <div>
+                  <p>Start Date: <%= event.initial_date %></p>
+                  <p>End Date: <%= event.end_date %></p>
+                </div>
+              </p>
+              <%= link_to 'Details', event_path(event.id), class: "btn btn-secondary btn-white" %>
+            </div>
+          </div>
+          <% end %>
+        <% else %>
+          <h4>There were no past events.</h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

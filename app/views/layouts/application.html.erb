@@ -8,8 +8,31 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class="back-ground">
+  <nav class="navbar sticky-top  p-3  ">
+     <span class="navbar-brand mb-0  ">
+      <h5 class="text-white">
+        <%= link_to "Private Events", events_path, class: 'text-white font-weight-bold no-hover' %>
+      </h5>
+     </span>
+  <div id="user_header">
+    <% if current_user %>
+      Welcome <%= link_to current_user.name, user_path(current_user.id), class: 'text-white' %>.
+      <%= link_to 'New Event', new_event_path,  class: 'btn btn-warning mx-3 text-dark' %>
 
-  <body>
+      <%= link_to "Log Out", logout_path, class: 'btn btn-dark' %>
+    <% else %>
+      <%= link_to "Sign Up", signup_path, class: 'btn btn-dark' %> or
+      <%= link_to "Log In", login_path, class: 'btn btn-dark' %>
+    <% end %>
+  </div>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, class: "alert alert-#{key}") do %>
+      <p><%= value %></p>
+    <% end %>
+  <% end %>
+ 
+  </nav>
     <%= yield %>
   </body>
 </html>

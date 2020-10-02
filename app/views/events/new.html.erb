@@ -1,0 +1,33 @@
+
+
+<div class="container d-flex align-items-center flex-column">
+  <h2 class='text-center mt-5 text-white'>New Event</h2>
+  <%= form_with(model: @event, local: true) do |form| %>
+    <% if @event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+        <ul>
+          <% @event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="text-white h4 font-weight-bold d-flex field flex-column">
+      <%= form.label :initial_date, class: 'mt-4' %>
+      <%= form.date_field :initial_date %>
+      <%= form.label :end_date, class: 'mt-4' %>
+      <%= form.date_field :end_date %>
+      <%= form.label :location, class: 'mt-4' %>
+      <%= form.text_field :location %>
+      <%= form.label :description, class: 'mt-4' %>
+      <%= form.text_field :description  %>
+    </div>
+
+    <button type="submit" class="btn btn-dark">Create Event</button>
+  <% end %>
+</div>
+
+<%= link_to 'Back', events_path %>

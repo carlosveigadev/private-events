@@ -1,0 +1,13 @@
+
+<div class="container d-flex align-items-center flex-column">
+  <h2 class="text-white mt-5">Log In</h2>
+
+  <%= form_tag sessions_path do %>
+    <div class="form-group text-white form-controller" style="width: 25rem">
+      <%= label_tag :name %>
+      <%= text_field_tag :name, "", class: 'form-control'%>
+    </div>
+    <button type="submit" class="btn btn-dark">Login</button>
+    <%= link_to 'Back', events_path, class: "text-white" %>
+  <% end %>
+</div>
