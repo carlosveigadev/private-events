@@ -35,9 +35,9 @@
 
 👤 **Carlos Veiga**
 
-- Github: [@wrakc](https://github.com/wrakc)
-- Twitter: [@carlosveig](https://twitter.com/carlosveig)
-- Linkedin: [chveiga](https://linkedin.com/chveiga)
+- Github: [@carlosveigadev](https://github.com/carlosveigadev)
+- Twitter: [@carlosveigadev](https://twitter.com/carlosveigadev)
+- Linkedin: [carlosveigadev](https://linkedin.com/carlosveigadev)
 
 👤 **Sanad Walid Abujbara**
 
@@ -47,7 +47,7 @@
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 ## Show your support .
 
